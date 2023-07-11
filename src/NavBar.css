@@ -1,0 +1,23 @@
+.new-button {
+  background-color: transparent;
+  color: white;
+  border: none;
+  border: 2px solid white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  margin-right: 35px;
+}
+
+.custom-nav {
+  background-image: url("https://media.istockphoto.com/id/1434207977/photo/colorful-background-of-geometric-3d-shapes-digital-illustration-for-background-and-wallpaper.jpg?s=612x612&w=0&k=20&c=MisD7y1_pI-UXdhLE9xM8791C5qnK7r0MPJSEE_fpTM=");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  padding-bottom: 30px;
+}
+
+
+
