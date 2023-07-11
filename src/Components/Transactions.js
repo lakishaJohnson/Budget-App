@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import "../budget.css";
 
@@ -8,23 +8,20 @@ function Transactions() {
   const URL = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
-    const fetchTransactions = async () => {
-      try {
-        const response = await axios.get(`${URL}/transactions`);
+    axios.get(`${URL}/transactions`)
+      .then((response) => {
         setTransactions(response.data);
-        // console.log(response.data);
         const amountSum = response.data.reduce(
           (sum, transaction) => sum + transaction.amount,
           0
         );
         setTotalAmount(amountSum);
-      } catch (error) {
+      })
+      .catch((error) => {
         console.error("Error fetching transactions:", error);
-      }
-    };
-
-    fetchTransactions();
+      });
   }, [URL]);
+  
 
   return (
     <div className="transactions-container">
@@ -35,7 +32,9 @@ function Transactions() {
             <tr className="table-row" key={transaction.id}>
               <td className="table-cell">{transaction.date}</td>
               <td className="table-cell">
-                <a href={"/transaction/:index"}>{transaction.category}</a>
+                <a href={`/transactions/${transaction.id}`}>
+                  {transaction.category}
+                </a>
               </td>
               <td className="table-cell">{transaction.amount}</td>
             </tr>
