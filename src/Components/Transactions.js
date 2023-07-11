@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "../budget.css"
+import "../budget.css";
 
 function Transactions() {
   const [transactions, setTransactions] = useState([]);
+  const [totalAmount, setTotalAmount] = useState(0);
   const URL = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
@@ -12,6 +13,11 @@ function Transactions() {
         const response = await axios.get(`${URL}/transactions`);
         setTransactions(response.data);
         // console.log(response.data);
+        const amountSum = response.data.reduce(
+          (sum, transaction) => sum + transaction.amount,
+          0
+        );
+        setTotalAmount(amountSum);
       } catch (error) {
         console.error("Error fetching transactions:", error);
       }
@@ -22,14 +28,16 @@ function Transactions() {
 
   return (
     <div className="transactions-container">
-      <h1 className="account-total">Bank Account Total: 0</h1>
-      <table>
+      <h1 className="account-total">Bank Account Total: {totalAmount}</h1>
+      <table className="custom-table">
         <tbody>
           {transactions.map((transaction) => (
-            <tr key={transaction.id}>
-              <td>{transaction.date}</td>
-              <td>{transaction.category}</td>
-              <td>{transaction.amount}</td>
+            <tr className="table-row" key={transaction.id}>
+              <td className="table-cell">{transaction.date}</td>
+              <td className="table-cell">
+                <a href={"/transaction/:index"}>{transaction.category}</a>
+              </td>
+              <td className="table-cell">{transaction.amount}</td>
             </tr>
           ))}
         </tbody>
