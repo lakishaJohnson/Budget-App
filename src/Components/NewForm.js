@@ -6,16 +6,16 @@ function NewForm() {
   const navigate = useNavigate();
   const URL = process.env.REACT_APP_API_URL;
 
-  const [transactions, setTransactions] = useState({
+  const [transaction, setTransaction] = useState({
     item_name: "",
-    amount: 0,
+    amount: "",
     date: "",
     from: "",
     category: "",
   });
 
   const handleTextChange = (event) => {
-    setTransactions({ ...transactions, [event.target.id]: event.target.value });
+    setTransaction({ ...transaction, [event.target.id]: event.target.value });
   };
 
   const addTransaction = (newTransaction) => {
@@ -29,7 +29,7 @@ function NewForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    addTransaction(transactions);
+    addTransaction(transaction);
   };
 
   return (
@@ -40,9 +40,10 @@ function NewForm() {
             Date:
           </label>
           <input
+            className="input"
             id="date"
             type="text"
-            value={transactions.date}
+            value={transaction.date}
             placeholder="August 8, 2023"
             onChange={handleTextChange}
           />
@@ -52,12 +53,12 @@ function NewForm() {
             Name:
           </label>
           <input
+            className="input"
             id="item_name"
-            value={transactions.item_name}
+            value={transaction.item_name}
             type="text"
             onChange={handleTextChange}
             placeholder="Electricity"
-            required
           />
         </div>
         <div className="form-group">
@@ -65,10 +66,11 @@ function NewForm() {
             Amount:
           </label>
           <input
+            className="input"
             id="amount"
             type="number"
-            value={transactions.amount}
-            placeholder="amount"
+            value={transaction.amount}
+            placeholder="Amount"
             onChange={handleTextChange}
           />
         </div>
@@ -77,9 +79,10 @@ function NewForm() {
             From:
           </label>
           <input
+            className="input"
             id="from"
             type="text"
-            value={transactions.from}
+            value={transaction.from}
             placeholder="Mom"
             onChange={handleTextChange}
           />
@@ -88,13 +91,14 @@ function NewForm() {
           <label htmlFor="category" className="label">
             Category:
           </label>
-          <br />
           <input
+            className="input"
             id="category"
             type="text"
-            value={transactions.category}
+            value={transaction.category}
             placeholder="Category"
             onChange={handleTextChange}
+            required
           />
         </div>
         <br />
