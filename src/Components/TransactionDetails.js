@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const API = process.env.REACT_APP_API_URL;
@@ -8,9 +8,8 @@ function TransactionDetails() {
   const [transactions, setTransactions] = useState({});
   // eslint-disable-next-line
   const [error, setError] = useState(null);
-
   let { id } = useParams();
-  //   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -22,19 +21,36 @@ function TransactionDetails() {
       .catch((error) => {
         setError(error);
       });
-  }, [id, setError]);
+  }, [id, API]);
+
+  const handleDelete = () => {
+    axios
+      .delete(`${API}/transactions/${id}`)
+      .then(() => {
+        navigate(`/transactions`);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   return (
     <article>
       <div className="card-container">
         <div className="card showCard">
           <h2 className="title">{transactions.category}</h2>
-          <p><strong>Item name:</strong> {transactions.item_name}</p>
+          <p>
+            <strong>Item name:</strong> {transactions.item_name}
+          </p>
           <p>
             <strong>Item amount:</strong> ${transactions.amount}
           </p>
-          <p><strong>Date:</strong> {transactions.date}</p>
-          <p><strong>From:</strong> {transactions.from}</p>
+          <p>
+            <strong>Date:</strong> {transactions.date}
+          </p>
+          <p>
+            <strong>From:</strong> {transactions.from}
+          </p>
         </div>
       </div>
       <div className="buttons">
@@ -52,7 +68,9 @@ function TransactionDetails() {
         </div>
         <div>
           {" "}
-          <button className="button">Delete</button>
+          <button className="button" onClick={handleDelete}>
+            Delete
+          </button>
         </div>
       </div>
     </article>
