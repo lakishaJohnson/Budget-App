@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 
 const API = process.env.REACT_APP_API_URL;
 
 function TransactionDetails() {
   const [transactions, setTransactions] = useState({});
+  // eslint-disable-next-line
   const [error, setError] = useState(null);
 
   let { id } = useParams();
@@ -21,7 +22,7 @@ function TransactionDetails() {
       .catch((error) => {
         setError(error);
       });
-  }, [API, id]);
+  }, [id, setError]);
 
   return (
     <article>
