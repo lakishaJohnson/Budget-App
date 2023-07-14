@@ -1,0 +1,129 @@
+/* INDEX CSS:THE WHOLE LIST */
+.transactions-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+}
+
+.custom-table {
+  width: 70%;
+}
+
+.table-row {
+  border-bottom: 1px solid #ccc;
+}
+
+.table-cell {
+  padding: 10px;
+}
+
+.account-total {
+  padding: 20px;
+  text-align: center;
+}
+
+.account-total-yellow {
+  color: rgb(5, 122, 52);
+}
+
+.account-total-normal {
+  color: rgb(239, 220, 45);
+}
+
+.account-total-red {
+  color: rgb(212, 11, 11);
+}
+/* SHOW CSS: EACH ITEM */
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  text-align: center;
+  padding: 30px;
+  background-color: #8fc3bf;
+  border-radius: 8px;
+  width: 600px;
+  margin: 0 auto;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.button-link {
+  text-decoration: none;
+}
+
+.button {
+  padding: 10px 50px;
+  margin: 0 20px;
+  background-color: #ddccbd;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #d0d0d0;
+}
+.showCard {
+  margin-top: 50px;
+}
+
+/* NEW TRANSACTION CSS */
+.New {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.new-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  width: 300px;
+}
+
+.submit-button {
+  padding: 8px 20px;
+  margin: 0 20px;
+  border: 1px solid #757373;
+  border-radius: 4px;
+  background-color: transparent;
+  color: rgb(44, 42, 42);
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #45a049;
+}
+
+.submit-button:active {
+  background-color: #3e8e41;
+}
+
+.input {
+  padding: 5px;
+}
+
+/* EDIT CSS */
