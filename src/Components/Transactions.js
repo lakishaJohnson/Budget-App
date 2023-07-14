@@ -25,24 +25,33 @@ function Transactions() {
       });
   }, [URL]);
 
+  const totalAmountClass =
+    totalAmount > 100
+      ? "account-total account-total-yellow"
+      : totalAmount > 0
+      ? "account-total account-total-normal"
+      : "account-total account-total-red";
+
   return (
-    <div className="transactions-container">
-      <h1 className="account-total">Bank Account Total: ${totalAmount}</h1>
-      <table className="custom-table">
-        <tbody>
-          {transactions.map((transaction, index) => (
-            <tr className="table-row" key={index}>
-              <td className="table-cell">{transaction.date}</td>
-              <td className="table-cell">
-                <a href={`/transactions/${transaction.id}`}>
-                  {transaction.category}
-                </a>
-              </td>
-              <td className="table-cell">{transaction.amount}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div>
+      <h1 className={totalAmountClass}>Bank Account Total: ${totalAmount}</h1>
+      <div className="transactions-container">
+        <table className="custom-table">
+          <tbody>
+            {transactions.map((transaction, index) => (
+              <tr className="table-row" key={index}>
+                <td className="table-cell">{transaction.date}</td>
+                <td className="table-cell">
+                  <a href={`/transactions/${transaction.id}`}>
+                    {transaction.category}
+                  </a>
+                </td>
+                <td className="table-cell">{transaction.amount}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
