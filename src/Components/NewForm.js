@@ -4,7 +4,8 @@ import axios from "axios";
 
 function NewForm() {
   const navigate = useNavigate();
-  const URL = process.env.REACT_APP_API_URL;
+  const API = process.env.REACT_APP_API_URL;
+  // console.log(id);
 
   const [transaction, setTransaction] = useState({
     item_name: "",
@@ -20,8 +21,11 @@ function NewForm() {
 
   const addTransaction = (newTransaction) => {
     axios
-      .post(`${URL}/transactions`, newTransaction)
-      .then(() => navigate("/transactions"))
+      .post(`${API}/transactions`, newTransaction)
+      .then((response) => {
+        const id = response.data.id; //GET ID FROM BACKEND
+        navigate(`/transactions/${id}`);
+      })
       .catch((error) => {
         console.error(error);
       });
@@ -72,6 +76,7 @@ function NewForm() {
             value={transaction.amount}
             placeholder="Amount"
             onChange={handleTextChange}
+            required
           />
         </div>
         <div className="form-group">
