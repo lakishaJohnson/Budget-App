@@ -18,7 +18,7 @@ function NavBar() {
       <div className="collapse navbar-collapse d-flex justify-content-end">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item">
-            <a href="/transactions/new" className="button new-button" onClick={handleNewLogClick} >
+            <a href="/transactions/new" className=" new-button" onClick={handleNewLogClick} >
               New transaction
             </a>
           </li>
