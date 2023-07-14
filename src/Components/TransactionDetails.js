@@ -21,7 +21,7 @@ function TransactionDetails() {
       .catch((error) => {
         setError(error);
       });
-  }, [id, API]);
+  }, [id]);
 
   const handleDelete = () => {
     axios
