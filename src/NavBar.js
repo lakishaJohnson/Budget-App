@@ -48,7 +48,7 @@ function NavBar() {
               className="new-button"
               onClick={handleNewLogClick}
             >
-              New transaction
+              NEW TRANSACTION
             </a>
           </li>
         </ul>
