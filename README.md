@@ -11,12 +11,10 @@ This is a basic Budgeting App developed by Lakisha Johnson, me.
 
 ## Technologies Used
 
-- JavaScript library for building user interfaces
-- React Router: Library for routing in React applications
-- Axios: Library for making HTTP requests
-- Bootstrap and CSS: Styling the components
-- CORS: Allows backend communication
-- UUID: Universal Unique Identifier
+- JavaScript library for building user interfaces.
+- React Router: Libraries for routing in React applications.
+- Axios: Library for making HTTP requests.
+- Bootstrap and CSS: Styling the components.
 
 ## Setup Instructions
 
@@ -25,13 +23,6 @@ This is a basic Budgeting App developed by Lakisha Johnson, me.
 1. Open file to .env and update the REACT_APP_API_URL variable with the API URL.
 1. Start the development server with npm start.
 1. Open the app in your browser at http://localhost:3000.
-
-## API Endpoints
-
-- POST /transactions: Create a new transaction.
-- GET /transactions: Fetch all transactions.
-- UPDATE /transactions/:id: Edit a transaction by ID.
-- DELETE /transactions/:id: Delete a transaction by ID.
 
 ## Usage
 
