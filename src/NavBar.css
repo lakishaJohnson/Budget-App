@@ -1,8 +1,8 @@
 .new-button {
   background-color: transparent;
-  color: white;
+  color: #E4D1CF;
   border: none;
-  border: 2px solid white;
+  border: 2px solid #E4D1CF;
   padding: 10px 20px;
   border-radius: 4px;
   cursor: pointer;
@@ -17,6 +17,14 @@
   background-position: center;
   width: 100%;
   padding-bottom: 30px;
+}
+
+.total-amount {
+  text-align: center;
+  margin-top: 20px;
+  margin-left: 20%;
+  color: #decfce;
+  
 }
 
 
