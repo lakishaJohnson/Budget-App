@@ -15,6 +15,22 @@ function NewForm() {
     category: "",
   });
 
+  const [newCategory, setNewCategory] = useState("");
+  const [categories, setCategories] = useState([
+    "Food",
+    "Rent",
+    "Utilities",
+    // Add initial categories here
+  ]);
+
+  const handleCategoryChange = (event) => {
+    setTransaction({ ...transaction, category: event.target.value });
+  };
+
+  const handleNewCategoryChange = (event) => {
+    setNewCategory(event.target.value);
+  };
+
   const handleTextChange = (event) => {
     setTransaction({ ...transaction, [event.target.id]: event.target.value });
   };
@@ -34,6 +50,12 @@ function NewForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
     addTransaction(transaction);
+  };
+
+  const handleCategoryBlur = () => {
+    if (newCategory.trim() !== "" && !categories.includes(newCategory)) {
+      setCategories([...categories, newCategory]);
+    }
   };
 
   return (
@@ -96,14 +118,27 @@ function NewForm() {
           <label htmlFor="category" className="label">
             Category:
           </label>
-          <input
+          <select
             className="input"
             id="category"
-            type="text"
             value={transaction.category}
-            placeholder="Category"
-            onChange={handleTextChange}
+            onChange={handleCategoryChange}
             required
+          >
+            <option value="">Select a category</option>
+            {categories.map((category) => (
+              <option key={category} value={category}>
+                {category}
+              </option>
+            ))}
+          </select>
+          <input
+            className="input"
+            type="text"
+            placeholder="New Category"
+            value={newCategory}
+            onChange={handleNewCategoryChange}
+            onBlur={handleCategoryBlur}
           />
         </div>
         <br />
