@@ -29,7 +29,7 @@
 }
 
 .account-total-normal {
-  color: rgb(239, 220, 45);
+  color: rgb(246, 228, 65);
 }
 
 .account-total-red {
@@ -115,15 +115,11 @@
 }
 
 .submit-button:hover {
-  background-color: #45a049;
+  background-color: #46cec5;
 }
 
-.submit-button:active {
-  background-color: #3e8e41;
-}
 
 .input {
   padding: 5px;
 }
 
-/* EDIT CSS */
