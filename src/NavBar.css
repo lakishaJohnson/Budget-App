@@ -1,6 +1,7 @@
 .new-button {
   background-color: transparent;
   color: #E4D1CF;
+  font-weight: bold;
   border: none;
   border: 2px solid #E4D1CF;
   padding: 10px 20px;
