@@ -5,7 +5,6 @@ import axios from "axios";
 function NewForm() {
   const navigate = useNavigate();
   const API = process.env.REACT_APP_API_URL;
-  // console.log(id);
 
   const [transaction, setTransaction] = useState({
     item_name: "",
@@ -13,6 +12,7 @@ function NewForm() {
     date: "",
     from: "",
     category: "",
+    isWithdrawal: false, 
   });
 
   const [newCategory, setNewCategory] = useState("");
@@ -20,6 +20,7 @@ function NewForm() {
     "Food",
     "Rent",
     "Utilities",
+    "Gas",
     // Add initial categories here
   ]);
 
@@ -33,6 +34,10 @@ function NewForm() {
 
   const handleTextChange = (event) => {
     setTransaction({ ...transaction, [event.target.id]: event.target.value });
+  };
+
+  const handleCheckboxChange = (event) => {
+    setTransaction({ ...transaction, isWithdrawal: event.target.checked });
   };
 
   const addTransaction = (newTransaction) => {
@@ -49,7 +54,16 @@ function NewForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    addTransaction(transaction);
+    const amount = parseFloat(transaction.amount);
+    const finalAmount = transaction.isWithdrawal ? -amount : amount;
+
+    // Create the new transaction object with the updated amount
+    const newTransaction = {
+      ...transaction,
+      amount: finalAmount,
+    };
+
+    addTransaction(newTransaction);
   };
 
   const handleCategoryBlur = () => {
@@ -135,11 +149,23 @@ function NewForm() {
           <input
             className="input"
             type="text"
-            placeholder="New Category"
+            placeholder="Add category, then click dropdown"
             value={newCategory}
             onChange={handleNewCategoryChange}
             onBlur={handleCategoryBlur}
           />
+        </div>
+        <div className="form-group">
+          <input
+            className="input"
+            id="isWithdrawal"
+            type="checkbox"
+            checked={transaction.isWithdrawal}
+            onChange={handleCheckboxChange}
+          />
+          <label htmlFor="isWithdrawal" className="label">
+            {transaction.isWithdrawal ? "Withdrawal" : "Deposit"}
+          </label>
         </div>
         <br />
         <button type="submit" className="submit-button">
