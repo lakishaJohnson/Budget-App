@@ -2,6 +2,8 @@
 
 This is a basic Budgeting App developed by Lakisha Johnson, me. Here's the link to the backend, [GitHub](https://github.com/lakishaJohnson/Backend-Budget-App.git).
 
+View this project's trello board @[Trello](https://trello.com/invite/b/PcqmELyZ/ATTI1d94902850c0f784540c8d749d384d3aE49E5B58/budgeting-like-a-star).
+
 ## Features
 
 - Input deposits or withdrawals.
@@ -46,7 +48,5 @@ This is a basic Budgeting App developed by Lakisha Johnson, me. Here's the link 
 ## License
 
 This project is licensed under the MIT License.
-
-View my trello board [Trello](https://trello.com/invite/b/PcqmELyZ/ATTI1d94902850c0f784540c8d749d384d3aE49E5B58/budgeting-like-a-star).
 
 Connect with me on [LinkedIn](https://www.linkedin.com/in/lakisha-johnson-0b0587219/) or check out my other projects on [GitHub](https://github.com/lakishaJohnson).
