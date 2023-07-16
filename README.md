@@ -1,6 +1,6 @@
 # Budgeting App
 
-This is a basic Budgeting App developed by Lakisha Johnson, me.
+This is a basic Budgeting App developed by Lakisha Johnson, me. Here's the link to the backend, [GitHub](https://github.com/lakishaJohnson/Backend-Budget-App.git).
 
 ## Features
 
